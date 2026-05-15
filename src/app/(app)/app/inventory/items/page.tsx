@@ -167,7 +167,7 @@ export default function ItemsListPage() {
               <th className="text-right">Price</th>
               <th>Status</th>
               <th>Type</th>
-              <th></th>
+              <th>Level</th>
             </tr>
           </thead>
           <tbody>
@@ -198,7 +198,7 @@ export default function ItemsListPage() {
                   <Badge variant={typeBadge[it.type].variant} size="sm">{typeBadge[it.type].label}</Badge>
                 </td>
                 <td>
-                  <Badge variant={levelTone[it.level] === 'destructive' ? 'destructive' : levelTone[it.level] === 'warning' ? 'warning' : 'success'} size="sm">
+                  <Badge variant={levelTone[it.level]} size="sm">
                     {it.level}
                   </Badge>
                 </td>

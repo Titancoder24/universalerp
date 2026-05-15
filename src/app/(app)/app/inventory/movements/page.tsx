@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/select';
 import { cn, formatNumber, initials } from '@/lib/utils';
 
-type MovementType = 'receipt' | 'issue' | 'transfer' | 'adjustment' | 'return' | 'scrap';
+type MovementType = 'receipt' | 'issue' | 'transfer' | 'adjustment' | 'return' | 'scrap' | 'pack';
 
 interface Movement {
   id: string;
@@ -48,7 +48,7 @@ const movements: Movement[] = [
   { id: '2', ts: '14:18', type: 'issue', sku: 'OIL-HYD-46', name: 'Hydraulic Oil ISO 46', qty: -2, uom: 'drum', from: 'WH-PHX', to: 'SO-3217', ref: 'PCK-3221', user: 'Jordan Park' },
   { id: '3', ts: '13:55', type: 'transfer', sku: 'CHIP-FPGA-32', name: 'FPGA Dev Chip 32K Logic', qty: 4, uom: 'pcs', from: 'WH-CHI', to: 'WH-EWR', ref: 'TR-512', user: 'Devon Tasker' },
   { id: '4', ts: '13:33', type: 'adjustment', sku: 'GASKET-12', name: 'Rubber Gasket 12mm Series A', qty: -3, uom: 'pcs', from: 'WH-DAL', to: 'Damaged in transit', ref: 'ADJ-024', user: 'Aisha Nakamura' },
-  { id: '5', ts: '12:48', type: 'pack', sku: 'BEAR-6204', name: 'Ball Bearing 6204 ZZ', qty: -120, uom: 'pcs', from: 'WH-CHI', to: 'SO-3198', ref: 'PK-2987', user: 'Anna Liu' } as Movement,
+  { id: '5', ts: '12:48', type: 'pack', sku: 'BEAR-6204', name: 'Ball Bearing 6204 ZZ', qty: -120, uom: 'pcs', from: 'WH-CHI', to: 'SO-3198', ref: 'PK-2987', user: 'Anna Liu' },
   { id: '6', ts: '12:01', type: 'receipt', sku: 'CABLE-CAT6-305', name: 'CAT6 UTP Cable 305m Reel', qty: 24, uom: 'reel', from: 'PO-1191', to: 'WH-CHI / D-04-02-A', ref: 'GR-2099', user: 'Maya Tao' },
   { id: '7', ts: '11:22', type: 'issue', sku: 'PAINT-EPX-RAL5012', name: 'Epoxy Paint RAL5012 Blue', qty: -45, uom: 'liter', from: 'WH-ATL', to: 'WO-7211', ref: 'WI-1124', user: 'Priya Khatri' },
   { id: '8', ts: '10:48', type: 'return', sku: 'CART-HP-58A', name: 'HP Toner Cartridge 58A', qty: 4, uom: 'pcs', from: 'CUST-RET-088', to: 'WH-DAL', ref: 'RR-208', user: 'Carlos Mendoza' },

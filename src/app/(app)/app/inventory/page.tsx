@@ -1,19 +1,13 @@
 import Link from 'next/link';
 import {
   AlertTriangle,
-  ArrowDown,
   ArrowRight,
   Boxes,
-  Building2,
   Clock,
   DollarSign,
   Download,
-  Layers,
-  Package,
   Plus,
-  Snowflake,
   TrendingDown,
-  TrendingUp,
   Warehouse,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
