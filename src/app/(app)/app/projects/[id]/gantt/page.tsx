@@ -92,7 +92,7 @@ export default function GanttPage() {
               </div>
               <div className="relative" style={{ width: totalDays * dayWidth }}>
                 <div className="flex h-14 border-b bg-muted/20">
-                  {months.map((m, i) => (
+                  {months.map((m) => (
                     <div key={m} className="flex items-center justify-center border-r text-xs font-medium" style={{ width: 30 * dayWidth }}>
                       {m} 2026
                     </div>

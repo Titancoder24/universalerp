@@ -182,7 +182,7 @@ export default function NewPurchaseOrderPage() {
             <CardContent className="space-y-2 text-xs">
               <div className="flex items-center gap-2 rounded-md border p-2"><div className="size-2 rounded-full bg-success" /><span className="flex-1">Auto-approved (under $50k threshold)</span></div>
               <div className="flex items-center gap-2 rounded-md border p-2 opacity-50"><div className="size-2 rounded-full bg-muted" /><span className="flex-1">Director approval</span></div>
-              <div className="flex items-center gap-2 rounded-md border p-2 opacity-50"><div className="size-2 rounded-full bg-muted" /><span className="flex-1">CFO approval (>$250k)</span></div>
+              <div className="flex items-center gap-2 rounded-md border p-2 opacity-50"><div className="size-2 rounded-full bg-muted" /><span className="flex-1">CFO approval ({'>'}$250k)</span></div>
             </CardContent>
           </Card>
         </aside>

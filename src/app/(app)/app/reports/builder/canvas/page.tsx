@@ -140,41 +140,43 @@ export default function ReportBuilderCanvasPage() {
           </CardHeader>
           <CardContent className="p-6">
             <div className="h-full min-h-[400px] w-full">
-              <ResponsiveContainer width="100%" height={400}>
-                {chartType === 'bar' ? (
-                  <BarChart data={sampleData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                    <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))' }} />
-                    <Legend />
-                    <Bar dataKey="revenue" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="margin" fill="hsl(var(--success))" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                ) : chartType === 'line' ? (
-                  <LineChart data={sampleData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                    <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))' }} />
-                    <Legend />
-                    <Line type="monotone" dataKey="revenue" stroke="hsl(var(--primary))" strokeWidth={2} />
-                    <Line type="monotone" dataKey="margin" stroke="hsl(var(--success))" strokeWidth={2} />
-                  </LineChart>
-                ) : chartType === 'pie' ? (
-                  <PieChart>
-                    <Pie data={segmentData} cx="50%" cy="50%" outerRadius={120} dataKey="value" label />
-                    <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))' }} />
-                  </PieChart>
-                ) : (
-                  <table className="w-full text-sm">
-                    <thead className="border-b bg-muted/20">
-                      <tr><th className="px-3 py-2 text-left text-xs uppercase tracking-wide">Month</th><th className="px-3 py-2 text-right text-xs uppercase tracking-wide">Revenue</th><th className="px-3 py-2 text-right text-xs uppercase tracking-wide">Orders</th><th className="px-3 py-2 text-right text-xs uppercase tracking-wide">Margin</th></tr>
-                    </thead>
-                    <tbody>{sampleData.map((r) => (<tr key={r.month} className="border-b"><td className="px-3 py-2 font-medium">{r.month}</td><td className="px-3 py-2 text-right font-mono">{formatCurrency(r.revenue)}</td><td className="px-3 py-2 text-right font-mono">{r.orders}</td><td className="px-3 py-2 text-right font-mono">{formatCurrency(r.margin)}</td></tr>))}</tbody>
-                  </table>
-                )}
-              </ResponsiveContainer>
+              {chartType === 'table' ? (
+                <table className="w-full text-sm">
+                  <thead className="border-b bg-muted/20">
+                    <tr><th className="px-3 py-2 text-left text-xs uppercase tracking-wide">Month</th><th className="px-3 py-2 text-right text-xs uppercase tracking-wide">Revenue</th><th className="px-3 py-2 text-right text-xs uppercase tracking-wide">Orders</th><th className="px-3 py-2 text-right text-xs uppercase tracking-wide">Margin</th></tr>
+                  </thead>
+                  <tbody>{sampleData.map((r) => (<tr key={r.month} className="border-b"><td className="px-3 py-2 font-medium">{r.month}</td><td className="px-3 py-2 text-right font-mono">{formatCurrency(r.revenue)}</td><td className="px-3 py-2 text-right font-mono">{r.orders}</td><td className="px-3 py-2 text-right font-mono">{formatCurrency(r.margin)}</td></tr>))}</tbody>
+                </table>
+              ) : (
+                <ResponsiveContainer width="100%" height={400}>
+                  {chartType === 'bar' ? (
+                    <BarChart data={sampleData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                      <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                      <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                      <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))' }} />
+                      <Legend />
+                      <Bar dataKey="revenue" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="margin" fill="hsl(var(--success))" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  ) : chartType === 'line' ? (
+                    <LineChart data={sampleData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                      <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                      <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                      <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))' }} />
+                      <Legend />
+                      <Line type="monotone" dataKey="revenue" stroke="hsl(var(--primary))" strokeWidth={2} />
+                      <Line type="monotone" dataKey="margin" stroke="hsl(var(--success))" strokeWidth={2} />
+                    </LineChart>
+                  ) : (
+                    <PieChart>
+                      <Pie data={segmentData} cx="50%" cy="50%" outerRadius={120} dataKey="value" label />
+                      <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--popover))', border: '1px solid hsl(var(--border))' }} />
+                    </PieChart>
+                  )}
+                </ResponsiveContainer>
+              )}
             </div>
           </CardContent>
         </Card>
