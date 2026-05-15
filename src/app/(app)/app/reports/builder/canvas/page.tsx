@@ -25,7 +25,6 @@ import {
   Line,
   LineChart,
   Pie,
-  PieCell,
   PieChart,
   ResponsiveContainer,
   Tooltip,
