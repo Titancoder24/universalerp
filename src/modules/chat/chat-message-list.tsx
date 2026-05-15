@@ -16,7 +16,6 @@ import type { ChatMessage } from './types';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn, formatDateTime, formatRelativeTime, initials, colorFromString } from '@/lib/utils';
 import { ChatVoiceNote } from './chat-voice-note';
 import { ChatAttachmentRender } from './chat-attachment';
@@ -26,19 +25,19 @@ interface ChatMessageListProps {
 }
 
 export function ChatMessageList({ messages }: ChatMessageListProps) {
-  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   // Group messages by sender + time proximity
   const grouped = React.useMemo(() => groupMessages(messages), [messages]);
 
   React.useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
   }, []);
 
   return (
-    <ScrollArea className="h-full" viewportRef={scrollRef as any}>
+    <div ref={containerRef} className="h-full overflow-y-auto">
       <div className="flex flex-col gap-1 px-4 py-4">
         <div className="pb-6 text-center">
           <p className="text-xs text-muted-foreground">— Beginning of conversation —</p>
@@ -62,7 +61,7 @@ export function ChatMessageList({ messages }: ChatMessageListProps) {
           </div>
         ))}
       </div>
-    </ScrollArea>
+    </div>
   );
 }
 

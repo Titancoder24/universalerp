@@ -48,7 +48,7 @@ export default function SubcontractPage() {
     total: orders.length,
     open: orders.filter((o) => o.status === 'released' || o.status === 'in_progress').length,
     value: orders.reduce((s, o) => s + o.cost, 0),
-    pending: orders.filter((o) => o.received < o.qty && o.status !== 'cancelled' && o.status !== 'completed').reduce((s, o) => s + (o.qty - o.received), 0),
+    pending: orders.filter((o) => o.received < o.qty && o.status !== 'completed').reduce((s, o) => s + (o.qty - o.received), 0),
   };
 
   return (

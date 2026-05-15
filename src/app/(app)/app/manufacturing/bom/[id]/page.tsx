@@ -147,7 +147,9 @@ function TreeRow({ node, depth, expanded, onToggle }: {
         </td>
       </tr>
       {isOpen && node.children?.map((c) => (
-        <TreeRow key={c.id} node={c} depth={depth + 1} expanded={expanded} onToggle={onToggle} />
+        <React.Fragment key={c.id}>
+          <TreeRow node={c} depth={depth + 1} expanded={expanded} onToggle={onToggle} />
+        </React.Fragment>
       ))}
     </>
   );
@@ -291,7 +293,9 @@ export default function BomDetailPage({ params }: { params: Promise<{ id: string
                 </thead>
                 <tbody>
                   {bomTree.map((root) => (
-                    <TreeRow key={root.id} node={root} depth={0} expanded={expanded} onToggle={toggle} />
+                    <React.Fragment key={root.id}>
+                      <TreeRow node={root} depth={0} expanded={expanded} onToggle={toggle} />
+                    </React.Fragment>
                   ))}
                 </tbody>
               </table>
